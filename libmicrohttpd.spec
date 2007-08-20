@@ -1,11 +1,11 @@
-%define major 0
+%define major 1
 %define shortname microhttpd
 %define libname	%mklibname %shortname %major
 %define develname %mklibname -d %shortname
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.0.1
+Version:	0.0.3
 Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
