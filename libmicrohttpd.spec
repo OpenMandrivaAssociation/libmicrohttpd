@@ -5,7 +5,7 @@
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.2.0
+Version:	0.2.1
 Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
