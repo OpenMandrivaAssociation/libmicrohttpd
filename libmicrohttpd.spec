@@ -12,6 +12,7 @@ Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
 License:	GPLv2+
 Summary:	Small C library to run an HTTP server
 Group:		System/Libraries
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libcurl-devel
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
