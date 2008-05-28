@@ -1,11 +1,11 @@
-%define major 3
+%define major 4
 %define shortname microhttpd
 %define libname	%mklibname %shortname %major
 %define develname %mklibname -d %shortname
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.2.1
+Version:	0.3.1
 Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
@@ -83,16 +83,22 @@ Static libraries for %libname
 %setup -q
 
 %build
-%configure
+%configure2_5x
 # makefile doesn't support running multiple jobs simultaneously
 %{__make}
 
 %install
 %{__rm} -Rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
+
+%post -n %develname
+%_install_info microhttpd.info
+
+%preun -n %develname
+%_remove_install_info microhttpd.info
 
 %files -n %libname
 %doc AUTHORS ChangeLog COPYING NEWS README
@@ -103,6 +109,7 @@ Static libraries for %libname
 %{_includedir}/%{shortname}.h
 %{_libdir}/%{name}.so
 %{_libdir}/%{name}.la
+%{_datadir}/info/*
 
 %files -n %sdevelname
 %{_libdir}/%{name}.a
