@@ -6,7 +6,7 @@
 
 Name:		libmicrohttpd
 Version:	0.3.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
 License:	GPLv2+
