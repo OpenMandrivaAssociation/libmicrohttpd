@@ -1,37 +1,39 @@
-%define major 4
+%define major 5
 %define shortname microhttpd
 %define libname	%mklibname %shortname %major
 %define develname %mklibname -d %shortname
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.3.1
-Release:	%mkrel 3
+Version:	0.4.2
+Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://gnunet.org/libmicrohttpd/download/%{name}-%{version}.tar.gz
 License:	GPLv2+
 Summary:	Small C library to run an HTTP server
 Group:		System/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libcurl-devel
+BuildRequires:	libgcrypt-devel
+
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
 run an HTTP server as part of another application. Key features that
 distinguish libmicrohttpd from other projects are:
 
-	* C library: fast and small
-	* API is simple, expressive and fully reentrant
-	* Implementation is (largely) http 1.1 compliant
-	* HTTP server can listen on multiple ports
-	* Support for IPv6
-	* Creates binary of only 22k (for now)
-	* Three different threading models
+* C library: fast and small
+* API is simple, expressive and fully reentrant
+* Implementation is (largely) http 1.1 compliant
+* HTTP server can listen on multiple ports
+* Support for IPv6
+* Creates binary of only 22k (for now)
+* Three different threading models
 
 libmicrohttpd was started because the author needed an easy way to add
 a concurrent HTTP server to other projects. Existing alternatives were
 either non-free, not reentrant, standalone, of terrible code quality or
 a combination thereof. Do not use libmicrohttpd if you are looking for
-a standalone http server, there are many other projects out there that
+a standalone http server; there are many other projects out there that
 provide that kind of functionality already. However, if you want to be
 able to serve simple WWW pages from within your C or C++ application,
 check it out.
@@ -45,19 +47,19 @@ libmicrohttpd is a small C library that is supposed to make it easy to
 run an HTTP server as part of another application. Key features that
 distinguish libmicrohttpd from other projects are:
 
-	* C library: fast and small
-	* API is simple, expressive and fully reentrant
-	* Implementation is (largely) http 1.1 compliant
-	* HTTP server can listen on multiple ports
-	* Support for IPv6
-	* Creates binary of only 22k (for now)
-	* Three different threading models
+* C library: fast and small
+* API is simple, expressive and fully reentrant
+* Implementation is (largely) http 1.1 compliant
+* HTTP server can listen on multiple ports
+* Support for IPv6
+* Creates binary of only 22k (for now)
+* Three different threading models
 
 libmicrohttpd was started because the author needed an easy way to add
 a concurrent HTTP server to other projects. Existing alternatives were
 either non-free, not reentrant, standalone, of terrible code quality or
 a combination thereof. Do not use libmicrohttpd if you are looking for
-a standalone http server, there are many other projects out there that
+a standalone http server; there are many other projects out there that
 provide that kind of functionality already. However, if you want to be
 able to serve simple WWW pages from within your C or C++ application,
 check it out.
@@ -84,8 +86,7 @@ Static libraries for %libname
 
 %build
 %configure2_5x
-# makefile doesn't support running multiple jobs simultaneously
-%{__make}
+%make
 
 %install
 %{__rm} -Rf %{buildroot}
@@ -114,6 +115,7 @@ Static libraries for %libname
 %{_libdir}/%{name}.so
 %{_libdir}/%{name}.la
 %{_datadir}/info/*
+%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n %sdevelname
 %{_libdir}/%{name}.a
