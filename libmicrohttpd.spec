@@ -5,10 +5,10 @@
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.4.5
+Version:	0.4.6
 Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
-Source:		http://ftp.gnu.org/gnu/libmicrohttpd/download/%{name}-%{version}.tar.gz
+Source:		http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 License:	GPLv2+
 Summary:	Small C library to run an HTTP server
 Group:		System/Libraries
@@ -119,4 +119,3 @@ Static libraries for %libname
 
 %files -n %sdevelname
 %{_libdir}/%{name}.a
-
