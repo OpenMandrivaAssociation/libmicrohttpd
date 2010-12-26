@@ -1,11 +1,11 @@
-%define major 8
+%define major 10
 %define shortname microhttpd
 %define libname	%mklibname %shortname %major
 %define develname %mklibname -d %shortname
 %define sdevelname %mklibname -d -s %shortname
 
 Name:		libmicrohttpd
-Version:	0.9.1
+Version:	0.9.4
 Release:	%mkrel 1
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
