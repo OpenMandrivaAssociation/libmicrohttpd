@@ -4,18 +4,18 @@
 %define develname %mklibname -d %shortname
 %define sdevelname %mklibname -d -s %shortname
 
+Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.12
+Version:	0.9.16
 Release:	%mkrel 1
+License:	GPLv2+
+Group:		System/Libraries
 URL:		http://gnunet.org/libmicrohttpd/
 Source:		http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
-License:	GPLv2+
-Summary:	Small C library to run an HTTP server
-Group:		System/Libraries
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	curl-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	gnutls-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
@@ -93,20 +93,17 @@ Static libraries for %libname
 
 %install
 %{__rm} -Rf %{buildroot}
-%makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
+%makeinstall_std
 
 %post -n %develname
 %_install_info microhttpd.info
 
 %preun -n %develname
 %_remove_install_info microhttpd.info
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %libname
 %doc AUTHORS ChangeLog COPYING NEWS README
