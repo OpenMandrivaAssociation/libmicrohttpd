@@ -2,20 +2,18 @@
 %define shortname microhttpd
 %define libname	%mklibname %shortname %major
 %define develname %mklibname -d %shortname
-%define sdevelname %mklibname -d -s %shortname
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.16
-Release:	%mkrel 1
+Version:	0.9.21
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://gnunet.org/libmicrohttpd/
-Source:		http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 BuildRequires:	curl-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	gnutls-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
@@ -68,33 +66,23 @@ check it out.
 %package -n %develname
 Summary:	Development files for %libname
 Group:		System/Libraries
-Provides:	%name-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
+Provides:	%name-devel = %{EVRD}
+Requires:	%{libname} = %{version}
 
 %description -n %develname
 Development files for %libname
-
-%package -n %sdevelname
-Summary:	Static libraries for %libname
-Group:		System/Libraries
-Provides:	%name-static-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
-Requires:	%{develname} = %{version}-%{release}
-
-%description -n %sdevelname
-Static libraries for %libname
 
 %prep
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
-%{__rm} -Rf %{buildroot}
-
 %makeinstall_std
+
+%if %{mdvver} < 201200
 
 %post -n %develname
 %_install_info microhttpd.info
@@ -102,8 +90,7 @@ Static libraries for %libname
 %preun -n %develname
 %_remove_install_info microhttpd.info
 
-%clean
-rm -rf %{buildroot}
+%endif
 
 %files -n %libname
 %doc AUTHORS ChangeLog COPYING NEWS README
@@ -113,9 +100,5 @@ rm -rf %{buildroot}
 %files -n %develname
 %{_includedir}/%{shortname}.h
 %{_libdir}/%{name}.so
-%{_libdir}/%{name}.la
 %{_datadir}/info/*
 %{_libdir}/pkgconfig/%{name}.pc
-
-%files -n %sdevelname
-%{_libdir}/%{name}.a
