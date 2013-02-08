@@ -1,4 +1,5 @@
 removed_sources:
   libmicrohttpd-0.9.22.tar.gz: 95d2934448ea2f6beff985f312b4502ea1563d2a
-sources:
   libmicrohttpd-0.9.24.tar.gz: 9fe31e1ecf81bf9eae4819d9e93e2e76d483f02b
+sources:
+  libmicrohttpd-0.9.25.tar.gz: da24fe9572f83e67959b0e32e15d261fcbf46bc1
