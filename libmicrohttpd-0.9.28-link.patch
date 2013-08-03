@@ -1,0 +1,11 @@
+--- libmicrohttpd-0.9.28/src/microspdy/Makefile.am~	2013-07-08 17:49:30.000000000 +0800
++++ libmicrohttpd-0.9.28/src/microspdy/Makefile.am	2013-08-03 14:30:11.073443687 +0800
+@@ -31,6 +31,9 @@
+ libmicrospdy_la_LDFLAGS = \
+   $(SPDY_LIB_LDFLAGS) 
+ 
++libmicrospdy_la_LIBADD = \
++  -lssl -lz
++
+ libmicrospdy_la_CFLAGS = -Wextra \
+   $(SPDY_LIB_CFLAGS)
