@@ -77,7 +77,7 @@ Development files for %{libname}
 
 %prep
 %setup -q
-%apply_patches
+#apply_patches
 
 %build
 autoreconf -fiv
