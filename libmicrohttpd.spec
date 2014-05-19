@@ -13,7 +13,7 @@ License:	GPLv2+
 Group:		System/Libraries
 Url:		http://gnunet.org/libmicrohttpd/
 Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
-Patch0:		libmicrohttpd-0.9.28-link.patch
+Patch0:		libmicrohttpd-0.9.35-link.patch
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
@@ -77,7 +77,7 @@ Development files for %{libname}
 
 %prep
 %setup -q
-#apply_patches
+%apply_patches
 
 %build
 autoreconf -fiv
@@ -104,5 +104,6 @@ autoreconf -fiv
 %{_libdir}/%{name}.so
 %{_libdir}/libmicrospdy.so
 %{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/pkgconfig/libmicrospdy.pc
 %{_datadir}/info/*
 %{_mandir}/man3/%{name}.3*
