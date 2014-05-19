@@ -1,0 +1,14 @@
+diff --git a/src/microspdy/Makefile.am b/src/microspdy/Makefile.am
+index a1afb06..93ef1aa 100644
+--- a/src/microspdy/Makefile.am
++++ b/src/microspdy/Makefile.am
+@@ -26,6 +26,9 @@ libmicrospdy_la_LIBADD = \
+ libmicrospdy_la_LDFLAGS = \
+   $(SPDY_LIB_LDFLAGS)
+ 
++libmicrospdy_la_LIBADD = \
++  -lssl -lz
++
+ libmicrospdy_la_CPPFLAGS = \
+   $(AM_CPPFLAGS) $(SPDY_LIB_CPPFLAGS) \
+   -DBUILDING_MHD_LIB=1
