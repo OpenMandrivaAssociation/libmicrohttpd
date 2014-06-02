@@ -1,13 +1,13 @@
-%define sname	microhttpd
-%define major	10
-%define libname	%mklibname %{sname} %major
+%define sname microhttpd
+%define major 10
+%define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
 %define spdymajor 0
 %define libspdy %mklibname microspdy %spdymajor
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.35
+Version:	0.9.37
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -81,7 +81,7 @@ Development files for %{libname}
 
 %build
 autoreconf -fiv
-%configure2_5x --disable-static
+%configure
 %make
 
 %install
