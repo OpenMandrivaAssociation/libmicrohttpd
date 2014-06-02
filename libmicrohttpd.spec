@@ -81,7 +81,7 @@ Development files for %{libname}
 
 %build
 autoreconf -fiv
-%configure
+%configure --disable-static
 %make
 
 %install
