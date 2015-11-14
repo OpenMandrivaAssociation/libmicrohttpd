@@ -1,5 +1,5 @@
 %define sname microhttpd
-%define major 10
+%define major 12
 %define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
 %define spdymajor 0
