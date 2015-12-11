@@ -77,7 +77,6 @@ Development files for %{libname}
 
 %prep
 %setup -q
-%apply_patches
 
 %build
 %configure --disable-static
