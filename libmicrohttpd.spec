@@ -2,8 +2,6 @@
 %define major 12
 %define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
-%define spdymajor 0
-%define libspdy %mklibname microspdy %spdymajor
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
@@ -43,34 +41,22 @@ check it out.
 %package -n %{libname}
 Summary:	Small C library to run an HTTP server
 Group:		System/Libraries
+Provides:	%{mklibname microspdy 0} = 0.9.47
+Obsoletes:	%{mklibname microspdy 0} < 0.9.47
+Obsoletes:	microspdy2http < 0.9.47
 
 %description -n %{libname}
 libmicrohttpd is a small C library that is supposed to make it easy to
 run an HTTP server as part of another application. Key features that
 distinguish libmicrohttpd from other projects are:
 
-%package -n %libspdy
-Summary:	API of SPDY server
-Group:		System/Libraries
-
-%description -n %libspdy
-libmicrospdy provides a compact API of SPDY server. libmicrospdy currently
-only implements version 3 of SPDY and accepts only TLS connections.
-
-%package -n	microspdy2http
-Summary:	Implementation of SPDY server
-Group:		System/Base
-
-%description -n microspdy2http
-microspdy2http provides an implementation of SPDY server.
-
-
 %package -n %{devname}
 Summary:	Development files for %{libname}
 Group:		System/Libraries
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libspdy} = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
+Provides:	%{mklibname microspdy -d} = 0.9.47
+Obsoletes:	%{mklibname microspdy -d} < 0.9.47
 
 %description -n %{devname}
 Development files for %{libname}
@@ -87,13 +73,6 @@ Development files for %{libname}
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
-
-%files -n microspdy2http
-%{_bindir}/microspdy2http
-
-%files -n %{libspdy}
-%{_libdir}/libmicrospdy.so.%{spdymajor}
-%{_libdir}/libmicrospdy.so.%{spdymajor}.*
 
 %files -n %{devname}
 %doc AUTHORS ChangeLog COPYING NEWS README
