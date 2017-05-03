@@ -14,6 +14,7 @@ Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	gettext-devel
 
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
