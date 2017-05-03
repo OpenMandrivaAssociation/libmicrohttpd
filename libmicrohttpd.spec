@@ -3,6 +3,8 @@
 %define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
 
+%define _disable_rebuild_configure 1
+
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
 Version:	0.9.54
