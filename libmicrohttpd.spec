@@ -3,9 +3,11 @@
 %define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
 
+%define _disable_rebuild_configure 1
+
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.52
+Version:	0.9.54
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -14,6 +16,7 @@ Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	gettext-devel
 
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
