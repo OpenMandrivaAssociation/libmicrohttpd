@@ -7,7 +7,7 @@
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.54
+Version:	0.9.57
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
