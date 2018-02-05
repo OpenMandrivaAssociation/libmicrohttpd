@@ -7,7 +7,7 @@
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.58
+Version:	0.9.59
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -49,8 +49,7 @@ Obsoletes:	microspdy2http < 0.9.47
 
 %description -n %{libname}
 libmicrohttpd is a small C library that is supposed to make it easy to
-run an HTTP server as part of another application. Key features that
-distinguish libmicrohttpd from other projects are:
+run an HTTP server as part of another application.
 
 %package -n %{devname}
 Summary:	Development files for %{libname}
@@ -61,7 +60,7 @@ Provides:	%{mklibname microspdy -d} = 0.9.47
 Obsoletes:	%{mklibname microspdy -d} < 0.9.47
 
 %description -n %{devname}
-Development files for %{libname}
+Development files for %{libname}.
 
 %prep
 %setup -q
