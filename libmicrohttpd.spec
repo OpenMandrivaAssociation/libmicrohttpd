@@ -7,8 +7,8 @@
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.59
-Release:	2
+Version:	0.9.60
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://gnunet.org/libmicrohttpd/
@@ -63,14 +63,14 @@ Obsoletes:	%{mklibname microspdy -d} < 0.9.47
 Development files for %{libname}.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure --disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
