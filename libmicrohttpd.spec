@@ -2,13 +2,13 @@
 %define major 12
 %define libname %mklibname %{sname} %major
 %define devname %mklibname -d %{sname}
-
+%global optflags %{optflags} -Oz
 %define _disable_rebuild_configure 1
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
 Version:	0.9.69
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://gnunet.org/libmicrohttpd/
