@@ -7,7 +7,7 @@
 
 Summary:	Small C library to run an HTTP server
 Name:		libmicrohttpd
-Version:	0.9.73
+Version:	0.9.75
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	gettext-devel
+BuildRequires:	texinfo
 
 %description
 libmicrohttpd is a small C library that is supposed to make it easy to
@@ -81,5 +82,5 @@ Development files for %{libname}.
 %{_includedir}/%{sname}.h
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/info/*
-%{_mandir}/man3/%{name}.3*
+%doc %{_infodir}/*
+%doc %{_mandir}/man3/%{name}.3*
