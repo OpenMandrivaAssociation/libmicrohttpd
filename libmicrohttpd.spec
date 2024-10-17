@@ -11,7 +11,7 @@ Version:	1.0.1
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://gnunet.org/libmicrohttpd/
+Url:		https://gnunet.org/libmicrohttpd/
 Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libcurl)
