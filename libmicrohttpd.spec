@@ -13,6 +13,11 @@ License:	GPLv2+
 Group:		System/Libraries
 Url:		https://gnunet.org/libmicrohttpd/
 Source0:	http://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
